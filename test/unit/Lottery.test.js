@@ -24,7 +24,7 @@ const { developmentChains, networkConfig } = require("../../helper-hardhat-confi
 
         describe("enterLottery", function () {
             it("reverts when you don't pay enough", async () => {
-                await expect(lottery.enterLottery()).to.be.revertedWith( // is reverted when not paid enough or raffle is not open
+                await expect(lottery.enterLottery()).to.be.revertedWith( 
                     "Lottery__NotEnoughETHEntered"
                 )
             })
@@ -34,18 +34,18 @@ const { developmentChains, networkConfig } = require("../../helper-hardhat-confi
                 assert.equal(contractPlayer, deployer)
             })
             it("emits event on enter", async () => {
-                await expect(lottery.enterLottery({ value: entranceFee })).to.emit( // emits RaffleEnter event if entered to index player(s) address
+                await expect(lottery.enterLottery({ value: entranceFee })).to.emit( 
                     lottery,
                     "LotteryEnter"
                 )
             })
-            it("doesn't allow entrance when raffle is calculating", async () => {
+            it("doesn't allow entrance when lottery is calculating", async () => {
                 await lottery.enterLottery({ value: entranceFee })
-                // for a documentation of the methods below, go here: https://hardhat.org/hardhat-network/reference
+                
                 await network.provider.request({ method: "evm_mine", params: [] })
-                // we pretend to be a keeper for a second
-                await lottery.requestRandomWinner() // changes the state to calculating for our comparison below
-                await expect(lottery.enterLottery({ value: entranceFee })).to.be.revertedWith( // is reverted as raffle is calculating
+                
+                await lottery.requestRandomWinner() 
+                await expect(lottery.enterLottery({ value: entranceFee })).to.be.revertedWith(
                     "Lottery__NotOpen"
                 )
             })
@@ -58,10 +58,10 @@ const { developmentChains, networkConfig } = require("../../helper-hardhat-confi
             })
             it("can only be called after performupkeep", async () => {
                 await expect(
-                    VRFCoordinatorV2Mock.fulfillRandomWords(0, lottery.address) // reverts if not fulfilled
+                    VRFCoordinatorV2Mock.fulfillRandomWords(0, lottery.address) 
                 ).to.be.revertedWith("nonexistent request")
                 await expect(
-                    VRFCoordinatorV2Mock.fulfillRandomWords(1, lottery.address) // reverts if not fulfilled
+                    VRFCoordinatorV2Mock.fulfillRandomWords(1, lottery.address) 
                 ).to.be.revertedWith("nonexistent request")
             })})
 
