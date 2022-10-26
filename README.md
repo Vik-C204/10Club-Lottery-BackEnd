@@ -1,5 +1,5 @@
 
-# 10Club Lottery - Back End 
+# ChainClique Lottery - Back End 
 
 The back-end of the [ChainClique Lottery DApp](https://www.chaincliquelottery.online) - a smart contract, deployed on Ethereum Mainnet and [verified on Etherscan](https://goerli.etherscan.io/address/0x5cfC465bcC4f50A71E96b648F27D0A2c404D7c01#code), designed 
 to simulate a lottery-type activity where up-to 10 players can send ETH into a common pool
