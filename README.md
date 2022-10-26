@@ -1,7 +1,7 @@
 
 # ChainClique Lottery - Back End 
 
-The back-end of the [ChainClique Lottery DApp](https://www.chaincliquelottery.online) - a smart contract, deployed on Ethereum Mainnet and [verified on Etherscan](https://goerli.etherscan.io/address/0x5cfC465bcC4f50A71E96b648F27D0A2c404D7c01#code), designed 
+The back-end of the [ChainClique Lottery DApp](https://www.chaincliquelottery.online) - a smart contract, deployed on Ethereum Mainnet and [verified on Etherscan](https://etherscan.io/address/0x5d34e7ffd3865f19ff33ee1d630a349671fcc7af#code), designed 
 to simulate a lottery-type activity where up-to 10 players can send ETH into a common pool
 and once anyone finishes the lottery, sending a bit of LINK as payment in order to get a
 truly random number through ChainLink VRF, a winner is chosen and gets sent 50% of the ETH in the pool while the rest of the players receive the other 50% split equally between them.
@@ -26,6 +26,7 @@ The main technologies used in this project are:
 
 - [Solidity](https://docs.soliditylang.org/en/v0.8.17/) - Language for writing smart contracts on EVM compatible chains.
 - [Hardhat](https://hardhat.org/) - Ethereum development environment.
+- [ChainLinkVRF](https://docs.chain.link/docs/vrf/v2/introduction/) - Provably fair and verifiable random number generator
 
 
 
